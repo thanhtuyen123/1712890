@@ -18,7 +18,7 @@ struct sinhvien
 	wchar_t sothich[50];
 	
 }; sinhvien sv;
-void lui(FILE*fpcsv, wchar_t ch1)
+void luu(FILE*fpcsv, wchar_t ch1)
 {
 	long byte = 0;
 	while (1)
@@ -48,7 +48,7 @@ void readcsv(FILE*fpcsv, sinhvien &sv, int &demsothich)
 	}
 	else
 	{
-		lui(fpcsv, ch1);
+		luu(fpcsv, ch1);
 		fwscanf_s(fpcsv, L"%[^,],", &sv.mssv);
 	}
 	//Ho va ten -------------------------------------------------------------------------------------------------
@@ -59,7 +59,7 @@ void readcsv(FILE*fpcsv, sinhvien &sv, int &demsothich)
 	}
 	else
 	{
-		lui(fpcsv, ch1);
+		luu(fpcsv, ch1);
 		fwscanf_s(fpcsv, L"%[^,],", &sv.name);
 	}
 	//Khoa -------------------------------------------------------------------------------------------------
@@ -70,7 +70,7 @@ void readcsv(FILE*fpcsv, sinhvien &sv, int &demsothich)
 	}
 	else
 	{
-		lui(fpcsv, ch1);
+		luu(fpcsv, ch1);
 		fwscanf_s(fpcsv, L"%[^,],", &sv.khoa);
 	}
 	//Nien khoa  -------------------------------------------------------------------------------------------------
@@ -81,7 +81,7 @@ void readcsv(FILE*fpcsv, sinhvien &sv, int &demsothich)
 	}
 	else
 	{
-		lui(fpcsv, ch1);
+		luu(fpcsv, ch1);
 		fwscanf_s(fpcsv, L"%d,", &sv.nienkhoa);
 	}
 
@@ -93,7 +93,7 @@ void readcsv(FILE*fpcsv, sinhvien &sv, int &demsothich)
 	}
 	else
 	{
-		lui(fpcsv, ch1);
+		luu(fpcsv, ch1);
 		fwscanf_s(fpcsv, L"%[^,],", &sv.ngaysinh);
 	}
 	// hinh anh ca nhan  -----------------------------------------------------------------------------------
@@ -104,7 +104,7 @@ void readcsv(FILE*fpcsv, sinhvien &sv, int &demsothich)
 	}
 	else
 	{
-		lui(fpcsv, ch1);
+		luu(fpcsv, ch1);
 		fwscanf_s(fpcsv, L"%[^,],", &sv.hinhanh);
 	}
 
