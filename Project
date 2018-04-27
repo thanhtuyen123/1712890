@@ -254,7 +254,7 @@ void writehtml(FILE* &fphtml, FILE* fphtml_goc, sinhvien sv, int demsothich)
 			{
 				fwprintf(fphtml, L"%ls", str);
 			}
-			wint_t ch = fgetwc(fphtml_goc);//kiem tra da doc het hay chua, neu da doc het htmlgoc.htm thi` break; neu chua het thi doi con tro sang trai 1L(vi` khi getc con tro da~dich sang phai 1L)
+			wint_t ch = fgetwc(fphtml_goc);
 			if (ch == WEOF)
 				break;
 			else
@@ -270,10 +270,10 @@ void main()
 	FILE* fphtml_goc;
 
 	wchar_t* fpcsv_name = L"sinhvien2.csv";
-	fpcsv = _wfopen(fpcsv_name, L"rt, ccs=UTF-8");		//Mo file CSV
+	fpcsv = _wfopen(fpcsv_name, L"rt, ccs=UTF-8");		
 
 	wchar_t* fphtmlgoc_name = L"WEBCopy.htm";
-	fphtml_goc = _wfopen(fphtmlgoc_name, L"rt, ccs=UTF-8");		//Mo file htmlgoc.htm
+	fphtml_goc = _wfopen(fphtmlgoc_name, L"rt, ccs=UTF-8");		
 
 	if (fpcsv != NULL)
 	{
@@ -281,14 +281,13 @@ void main()
 		{
 			sinhvien sv;
 			int demsothich;
-			readcsv(fpcsv, sv, demsothich);			// Sau khi ham nay` thuc hien, con tro dang dung cuoi hang`.
+			readcsv(fpcsv, sv, demsothich);			
 			writehtml(fphtml, fphtml_goc, sv, demsothich);
 			rewind(fphtml_goc);
-			wint_t ch = fgetwc(fpcsv);	// Sau khi fgetwc, ch= ky tu xuong dong`=10(ASCII)  va`con tro se chuyen xuong dong ke tiep (neu co) . 
-			// Nguoc lai (neu khong co dong ke tiep) thi` fgetc se duoc ch= ky tu ket thuc= -1(ASCII)
-			if (ch == 10)				// Ky tu xuong dong
+			wint_t ch = fgetwc(fpcsv);	
+			if (ch == 10)				
 				continue;
-			else if (ch == WEOF)		// Ky tu ket thuc tap tin
+			else if (ch == WEOF)		
 				break;
 		}
 	}
